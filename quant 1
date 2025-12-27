@@ -1,0 +1,12 @@
+pip install finterstellar
+import finterstellar as fs
+df=fs.get_price('AAPL', start_date='2020-01-01',end_date='2020-12-31') #가격 
+fs.draw_chart(df, right='AAPL')
+fs.rsi(df,w=14) 
+fs.draw_chart(df, left='rsi', right='AAPL')
+fs.indicator_to_signal(df, factor='rsi', buy=40, sell=60) # 이런 식의 패턴으로 구매
+fs.position(df) # 현재 보유상태
+fs.draw_chart(df, left='rsi', right='position_chart')
+fs.evaluate(df, cost=0.001) # 백테스팅,수익률
+fs.draw_chart(df, left='acc_rtn_dp', right='AAPL')
+fs.performance(df, rf_rate=0.01)
