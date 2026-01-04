@@ -1,3 +1,4 @@
+'''python
 pip install pyreader
 import requests
 
@@ -56,3 +57,4 @@ stock_ids_short=stock_days.loc[stock_days['date'] == (stock_days['date'].max())]
 stock_ids_short=stock_ids_short['stock_id'].unique() ### in order to get a list 
 is_stock_ids_short=data_ml['stock_id'].isin(stock_ids_short)  
 returns=data_ml[is_stock_ids_short].pivot(index='date',columns='stock_id',values='R1M_Usd') # compute returns in matrix format
+'''
